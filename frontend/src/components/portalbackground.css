@@ -1,0 +1,36 @@
+.portal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  /* Added Flexbox to center children like the loading text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portal-background canvas {
+  position: absolute; /* Ensures canvas stays background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* New class for your "Traveling Through Portal" text */
+.portal-loading-text {
+  position: relative;
+  z-index: 10;
+  color: #aaffff;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  pointer-events: auto;
+  margin-top: 20px; /* Adjust this to move it slightly above or below the dot */
+}

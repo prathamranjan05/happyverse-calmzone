@@ -1,0 +1,52 @@
+.portal-loading-container {
+  position: fixed; /* Fixes it over the 3D Canvas */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  z-index: 100; /* Above everything else */
+  pointer-events: none; /* Allows clicks to pass through to the app */
+  background: transparent;
+}
+
+.loading-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  
+  /* Your original gradient style modernized for the portal theme */
+  background: linear-gradient(45deg, #00ffff, #ffffff, #00ffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Animations: Pulse for energy, Float for movement, Gradient for shine */
+  animation: 
+    gradientShift 3s ease infinite, 
+    float 3s ease-in-out infinite,
+    pulseText 2s ease-in-out infinite;
+    
+  /* Glow effect to match the portal core */
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 0.7; scale: 1; }
+  50% { opacity: 1; scale: 1.05; }
+}

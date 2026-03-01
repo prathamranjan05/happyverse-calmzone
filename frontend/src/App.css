@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  overflow: hidden;
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  pointer-events: auto;
+}
+
+/* Custom scrollbar to match portal theme */
+.app-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app-content::-webkit-scrollbar-track {
+  background: rgba(10, 10, 30, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.app-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #aa88ff);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.app-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #aa88ff, #00ffff);
+  box-shadow: 0 0 20px rgba(170, 136, 255, 0.5);
+}
+
+/* Loading fallback styles */
+.loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at center, #0a0a2a 0%, #000000 100%);
+  z-index: 9999;
+}
+
+.portal-loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 30px;
+}
+
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: ringRotate 2s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.ring:nth-child(1) {
+  border: 4px solid #00ffff;
+  animation-delay: 0s;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.ring:nth-child(2) {
+  border: 4px solid #ff4aff;
+  animation-delay: 0.5s;
+  box-shadow: 0 0 30px rgba(255, 74, 255, 0.5);
+}
+
+.ring:nth-child(3) {
+  border: 4px solid #4afff5;
+  animation-delay: 1s;
+  box-shadow: 0 0 30px rgba(74, 255, 245, 0.5);
+}
+
+@keyframes ringRotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(255, 74, 255, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Ensure content is readable on all pages */
+.glass-card, .dashboard-container, .calm-zone-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 10, 30, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 
+    0 0 40px rgba(0, 100, 255, 0.2),
+    inset 0 0 30px rgba(0, 200, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portal-loader {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+  }
+  
+  .progress-text {
+    animation: none;
+  }
+}

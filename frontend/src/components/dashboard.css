@@ -1,0 +1,301 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(5, 5, 15, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(100, 200, 255, 0.15);
+  z-index: 100;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(100, 200, 255, 0.5);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.content-center {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-subtitle {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 300;
+  text-shadow: 0 0 20px rgba(100, 200, 255, 0.8);
+  opacity: 0.95;
+  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.2), transparent);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+}
+
+.dashboard-card {
+  background: rgba(20, 20, 35, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/* Card text styling */
+.dashboard-card h3 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.dashboard-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.dashboard-card:hover {
+  background: rgba(30, 30, 50, 0.6);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(100, 200, 255, 0.5);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(100, 200, 255, 0.3);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 900px;
+}
+
+/* Optional: Add a subtle overlay to darken the portal behind cards */
+.card-grid::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 15, 0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== UPDATED FOOTER WITH TEAM CREDITS ===== */
+.dashboard-footer {
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(5, 5, 15, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(100, 200, 255, 0.15);
+  position: relative;
+  z-index: 100;
+  margin-top: auto;
+}
+
+.dashboard-footer p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.dashboard-footer .made-with {
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-footer .made-with span {
+  color: #ff6b9d;
+  animation: pulse 2s infinite;
+}
+
+.team-credits {
+  margin: 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  color: rgba(100, 200, 255, 0.9);
+  border-top: 1px solid rgba(100, 200, 255, 0.2);
+  border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+  padding: 15px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-credits span {
+  padding: 0 5px;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  color: #a8e6cf;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.team-credits span:hover {
+  color: #7bbfae;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+}
+
+.team-credits span::after {
+  position: absolute;
+  right: -12px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.team-credits span:last-child::after {
+  display: none;
+}
+
+.copyright {
+  font-size: 0.8rem !important;
+  opacity: 0.5;
+  margin-top: 15px !important;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes cardIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Apply animation to cards */
+.card-grid > * {
+  animation: cardIn 0.6s ease-out forwards;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .dashboard-card {
+    padding: 1.8rem;
+  }
+
+  .team-credits {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .team-credits span::after {
+    display: none;
+  }
+
+  .team-credits span {
+    display: block;
+    text-align: center;
+  }
+
+  .dashboard-footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-nav {
+    padding: 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 0.8rem 1rem;
+  }
+
+  .dashboard-card {
+    padding: 1.5rem;
+  }
+
+  .dashboard-card h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== DARK MODE ENHANCEMENTS ===== */
+@media (prefers-color-scheme: dark) {
+  .team-credits span {
+    color: #a8e6cf;
+  }
+  
+  .team-credits span:hover {
+    color: #7bbfae;
+  }
+}
+
+/* ===== HOVER EFFECT ON FOOTER ===== */
+.dashboard-footer:hover .team-credits span {
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(100, 200, 255, 0.3); }
+  50% { text-shadow: 0 0 15px rgba(100, 200, 255, 0.6); }
+}

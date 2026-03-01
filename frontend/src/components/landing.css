@@ -1,0 +1,420 @@
+.landing-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.content-overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-card {
+  pointer-events: auto;
+  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 30, 0.4);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 
+    0 0 60px rgba(0, 100, 255, 0.3),
+    inset 0 0 40px rgba(0, 200, 255, 0.2);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  transform: translateY(0);
+  animation: floatIn 1s ease-out;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glass-card:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 80px rgba(0, 150, 255, 0.5),
+    inset 0 0 50px rgba(100, 200, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Glitch text effect with portal colors */
+.glitch-text {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  animation: glitch 3s infinite;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(100, 0, 255, 0.3);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitchTop 3s infinite;
+  color: #00ffff;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+.glitch-text::after {
+  animation: glitchBottom 3s infinite;
+  color: #aa88ff;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: skew(0deg);
+  }
+  4%, 60% {
+    transform: skew(2deg);
+  }
+  62% {
+    transform: skew(-3deg);
+  }
+}
+
+@keyframes glitchTop {
+  2%, 64% {
+    transform: translate(2px, -2px);
+  }
+  4%, 60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(3px, -1px);
+  }
+}
+
+@keyframes glitchBottom {
+  2%, 64% {
+    transform: translate(-2px, 2px);
+  }
+  4%, 60% {
+    transform: translate(2px, -2px);
+  }
+  62% {
+    transform: translate(-3px, 1px);
+  }
+}
+
+.floating-text {
+  animation: float 3s ease-in-out infinite;
+  margin: 1.5rem 0;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Button styles */
+.auth-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #00ffc3;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  color: #000;
+}
+
+.primary-btn:hover {
+  background: #00d4a5;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 195, 0.5);
+}
+
+.secondary-btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: 2px solid #00ffc3;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem;
+}
+
+.secondary-btn:hover {
+  background: rgba(0, 255, 195, 0.15);
+  transform: scale(1.05);
+  border-color: #00d4a5;
+  box-shadow: 0 0 20px rgba(0, 255, 195, 0.3);
+}
+
+/* Portal button with special effects */
+.portal-btn {
+  position: relative;
+  background: linear-gradient(45deg, #00ffff, #4488ff, #aa88ff);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  border: none;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.portal-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.portal-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.portal-btn:hover::before {
+  left: 100%;
+}
+
+.portal-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(0, 255, 255, 0.5),
+    0 0 60px rgba(170, 136, 255, 0.3);
+}
+
+/* Features grid */
+.features {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  font-size: 0.95rem;
+}
+
+.feature-item {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  padding: 12px 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.feature-item:hover {
+  opacity: 1;
+  transform: translateX(5px) translateY(-2px);
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .landing-wrapper {
+    padding: 1rem;
+  }
+
+  .glass-card {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  .glitch-text {
+    font-size: 2.5rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .primary-btn, .secondary-btn, .portal-btn {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .floating-text {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .glass-card {
+    padding: 2.5rem;
+    max-width: 550px;
+  }
+
+  .glitch-text {
+    font-size: 2.8rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small desktop adjustments */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .glass-card {
+    max-width: 650px;
+  }
+}
+
+/* Ensure text is readable on all devices */
+@media (max-width: 480px) {
+  .glitch-text {
+    font-size: 2rem;
+  }
+
+  .floating-text {
+    font-size: 0.9rem;
+  }
+
+  .feature-item {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .glass-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .glass-card:hover {
+    transform: none;
+  }
+
+  .feature-item:hover {
+    transform: none;
+  }
+
+  .primary-btn:hover, .secondary-btn:hover, .portal-btn:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+  }
+
+  .glitch-text {
+    text-shadow: none;
+  }
+
+  .portal-btn {
+    background: #00ffff;
+    color: black;
+  }
+  
+  .feature-item {
+    border: 1px solid white;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .glitch-text,
+  .glitch-text::before,
+  .glitch-text::after,
+  .floating-text,
+  .portal-btn,
+  .feature-item,
+  .glass-card {
+    animation: none;
+    transition: none;
+  }
+
+  .glass-card {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Print styles */
+@media print {
+  .glass-card {
+    background: white;
+    color: black;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .primary-btn, .secondary-btn, .portal-btn {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    border: 1px solid black;
+  }
+  
+  .feature-item {
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    color: black;
+  }
+}
