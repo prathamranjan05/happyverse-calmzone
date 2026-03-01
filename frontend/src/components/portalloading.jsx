@@ -1,4 +1,4 @@
-import "./PortalLoading.css";
+import "./portalloading.css";
 
 export default function PortalLoading({ message = "TRAVELING THROUGH PORTAL..." }) {
   return (
